@@ -40,9 +40,14 @@ public class MainActivity extends TabActivity {
 
         Resources res = getResources();
         Configuration cfg = res.getConfiguration();
+		
+		/*
+		  horizontal orientation identifier - true if device in landscape orientation 
+		*/
         boolean hor = cfg.orientation == Configuration.ORIENTATION_LANDSCAPE;
 
         if (hor) {
+		     // setting orientaion of the tab widget's linear layout 
             TabWidget tw = tabHost.getTabWidget();
             tw.setOrientation(LinearLayout.VERTICAL);
         }
@@ -90,7 +95,10 @@ public class MainActivity extends TabActivity {
     
     
     
-    //creating custom indicator view for use with horizontal configurations of the tab host
+    /*
+	creating custom indicator view for use with horizontal configurations of the tab host
+	this method uses custom layout available in the res/layout/tab_indicator.xml for the tab indicator view. this layout contains different configurations for lanscape and portrait orientations
+	*/
     private View createIndicatorView(TabHost tabHost, CharSequence label, Drawable icon) {
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
